@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="main.css" rel="stylesheet">
+
+</head>
+    <body class="grey-bg">
+    <!--react처럼 컴포넌트 import같은 개념-->
+        <%- include("nav.ejs")%>
+
+        <div class="white-bg">
+            <% posts && posts.map(post => { %>
+                <div class="list-box">
+                    <h4>
+                        <a href="/detail/<%= post._id%>"><%= post.title %></a>
+                        <a href="/edit/<%= post._id%>">✏️</a>
+                    </h4>
+                     <p><%= post.content %></p>
+                </div>
+            <% }) %>
+        </div>
+    </body>
+</html>
